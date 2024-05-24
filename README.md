@@ -14,7 +14,7 @@ Laravel Jetstream installation guide: [Installation | Laravel Jetstream](https:/
 - Useful Videos
    1. [Add CRUD with User Roles](https://www.youtube.com/watch?v=pyOcSEkG4Q0)
 
-- Repos used
+- Repos used (Some code was from these repos)
    1. [Laravel-Jetstream-CRUD-Roles](https://github.com/LaravelDaily/Laravel-Jetstream-CRUD-Roles)
 
 ## Complementary Tools:
