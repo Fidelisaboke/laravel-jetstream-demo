@@ -17,8 +17,4 @@ Route::middleware([
     })->name('dashboard');
 });
 
-// Task routes
 Route::resource('tasks', Controllers\TaskController::class);
-
-// User routes
-Route::resource('users', Controllers\UserController::class);
