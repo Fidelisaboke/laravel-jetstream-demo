@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+use App\Http\Middleware\AuthGates;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,4 +18,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::resource('tasks', Controllers\TaskController::class);
+Route::middleware([AuthGates::class])->group(function (){
+    Route::resource('tasks', Controllers\TaskController::class);
+    Route::resource('users', Controllers\UserController::class);
+});
