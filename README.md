@@ -5,6 +5,15 @@
 Repo for trying out various functionalities and designs for using Laravel Jetstream in Laravel app development.
 Various tasks done or achieved in exploring Jetstream and adding functionality are outlined in this README.
 
+### Project Setup
+```
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+npm install
+npm run build
+```
 ## Tasks:
 
 ### Installation of Laravel Jetstream with Livewire scaffolding:
