@@ -18,7 +18,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::middleware([AuthGates::class])->group(function (){
+Route::middleware(['auth:sanctum'])->group(function (){
     Route::resource('tasks', Controllers\TaskController::class);
     Route::resource('users', Controllers\UserController::class);
 });

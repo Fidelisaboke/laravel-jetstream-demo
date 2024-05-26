@@ -16,22 +16,25 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                @can('task_access')
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('tasks.index') }}" :active="request()->routeIs('tasks.*')">
-                        {{ __('Tasks') }}
-                    </x-nav-link>
-                </div>
-                @endcan
-                @can('user_access')
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
-                        {{ __('Users') }}
-                    </x-nav-link>
-                </div>
-                @endcan
-            </div>
-
+                @foreach(auth()->user()->roles as $role)
+                    @foreach($role->permissions->pluck('title') as $permission)
+                        @if($permission === 'task_access')
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('tasks.index') }}" :active="request()->routeIs('tasks.*')">
+                                {{ __('Tasks') }}
+                            </x-nav-link>
+                        </div>
+                        @endif
+                        @if($permission === 'user_access')
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                                {{ __('Users') }}
+                            </x-nav-link>
+                        </div>
+                        @endif
+                    @endforeach
+                @endforeach
+                    </div>
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
