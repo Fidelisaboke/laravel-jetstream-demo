@@ -12,7 +12,7 @@
             </div>
         @endsession
 
-        @vite( ['resources/js/app.js'])
+        @vite(['resources/js/app.js'])
         <h1><b>Screen Locked</b></h1>
         <form method="post" action="{{ route('unlock') }}">
             @csrf
