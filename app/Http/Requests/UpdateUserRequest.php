@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Gate::allows('user_access');
     }
 
     /**
@@ -22,7 +23,10 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['string', 'required'],
+            'email' => ['email', 'required', 'unique:users,email', request()->route('user')->id],
+            'roles.*' => ['integer'],
+            'roles' => ['required', 'array']
         ];
     }
 }

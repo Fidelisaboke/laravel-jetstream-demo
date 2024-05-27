@@ -2,11 +2,15 @@
 
 namespace App\Http\Requests;
 
+use App\Actions\Fortify\PasswordValidationRules;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
 class StoreUserRequest extends FormRequest
+
 {
+    use PasswordValidationRules;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -23,7 +27,11 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string'],
+            'email' => ['required', 'unique:users'],
+            'password' => $this->passwordRules(),
+            'roles' => ['required', 'array'],
+            'roles.*' => ['integer']
         ];
     }
 }
