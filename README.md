@@ -26,6 +26,12 @@ Laravel Jetstream installation guide: [Installation | Laravel Jetstream](https:/
 - Repos used (Some code borrowed from these repos)
    1. [Laravel-Jetstream-CRUD-Roles](https://github.com/LaravelDaily/Laravel-Jetstream-CRUD-Roles) - For Tasks and User Roles CRUD
 
+### Add Lock Screen to Website:
+- Useful Video:
+    1. [How to Lock Screen Laravel](https://youtu.be/TbU79IegZDQ?si=-A3QByfFRaeYhTHb)
+
+- Steps:
+
 ## Complementary Tools:
 These tools can go well with Laravel Jetstream:
 1. [Postmark Email Service](https://postmarkapp.com/) 
