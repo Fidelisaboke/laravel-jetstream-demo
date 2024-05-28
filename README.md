@@ -62,4 +62,5 @@ These tools can go well with Laravel Jetstream:
 2. [Tailwind UI - Paid](https://tailwindui.com/)
 3. [Float UI - Free and Open Source](https://floatui.com/)
 4. [tailwindcomponents - Tailwind CSS Repo](https://tailwindcomponents.com/)
+5. [ThemeSelection.com - Good UI starter kits](https://themeselection.com/)
 
