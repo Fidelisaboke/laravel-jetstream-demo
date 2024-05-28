@@ -74,7 +74,7 @@ class UserController extends Controller
         // Eager load the roles for the user
         $user->load('roles');
 
-        return view('users.edit', compact('user'));
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -96,7 +96,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        
+
         $user->delete();
 
         return redirect()->route('users.index');

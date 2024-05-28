@@ -29,7 +29,7 @@ class StoreUserRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'email' => ['required', 'unique:users'],
-            'password' => $this->passwordRules(),
+            'password' => ['required', 'min:8'],
             'roles' => ['required', 'array'],
             'roles.*' => ['integer']
         ];

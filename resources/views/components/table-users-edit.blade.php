@@ -67,8 +67,11 @@
                 <td class="p-4 border-b border-blue-gray-50">
                     <div class="flex items-center gap-3">
                     <div class="flex flex-col">
-                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">{{$user->role}}</p>
-                    </div>
+                        @foreach ($user->roles as $role)
+                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                            {{ $role->title }}
+                        </p>
+                        @endforeach</div>
                     </div>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
@@ -76,11 +79,6 @@
                     <a href="{{ route('users.show', $user->id) }}" class="text-green-600 hover:text-blue-900">View</a>
                     <!-- edit -->
                     <a href="{{ route('users.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                    <!-- delete -->
-                    <form class="inline-block" action="{{ route('users.destroy', $user->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
                 </td>
             </tr>
             @endforeach
