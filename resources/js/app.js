@@ -29,8 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
     inactivityTime();
 
     // Lock screen button
-    document.getElementById('lock-screen-button').addEventListener('click', function () {
-        lockScreen();
+    const lockScreenBtn = document.getElementById('lock-screen-button');
+    lockScreenBtn.addEventListener('click', function () {
+        window.location.href ='/lock';
     });
 });
 
