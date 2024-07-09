@@ -16,8 +16,18 @@ class MailController extends Controller
             'message' => 'This is a test mail from Laravel 11.'
         ];
 
-        $response = Mail::to('email@example.com')->send(new TestMail($data));
+        $response = Mail::to(env('MAIL_TO_ADDRESS'))->send(new TestMail($data));
 
-        dd($response);
+        if ($response) {
+            return response()->json([
+                'message' => 'Mail sent successfully',
+                'data' => $data
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Mail not sent',
+                'data' => $data
+            ]);
+        }
     }
 }

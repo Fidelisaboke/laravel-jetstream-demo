@@ -28,7 +28,7 @@ class TestMail extends Mailable
     {
         return new Envelope(
             subject: 'Test Mail',
-            from: new Address('email@example.com', 'Fidel Isaboke'),
+            from: new Address(env('MAIL_FROM_ADDRESS'), 'Fidel Isaboke'),
         );
     }
 
