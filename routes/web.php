@@ -28,4 +28,5 @@ Route::middleware([
     Route::resource('users', Controllers\UserController::class)->middleware([CheckIfLocked::class, AuthGates::class]);
 });
 
-Route::get('/mail', [Controllers\MailController::class, 'index']);
+Route::get('/test-mail', [Controllers\TestMailController::class, 'index']);
+Route::get('/welcome-mail', [Controllers\WelcomeMailController::class, 'index']);
