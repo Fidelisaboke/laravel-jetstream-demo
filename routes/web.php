@@ -30,3 +30,4 @@ Route::middleware([
 
 Route::get('/test-mail', [Controllers\TestMailController::class, 'index']);
 Route::get('/welcome-mail', [Controllers\WelcomeMailController::class, 'index']);
+Route::get('/welcome-notification', [Controllers\WelcomeNotificationController::class, 'index']);
